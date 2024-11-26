@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: python-demo-app
+spec:
+  replicas: 1  # Number of replicas you want to run
+  selector:
+    matchLabels:
+      app: python-demo-app
+  template:
+    metadata:
+      labels:
+        app: python-demo-app
+    spec:
+      containers:
+      - name: python-demo-app
+        image: sundarmax18/k8s_python_demo_code:latest  # Replace with your image name
+        ports:
+        - containerPort: 5000
+
